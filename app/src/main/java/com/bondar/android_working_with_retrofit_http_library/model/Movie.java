@@ -9,33 +9,33 @@ import java.util.List;
 public class Movie {
 
     @SerializedName("poster_path")
-    public String posterPath;
+    private String posterPath;
     @SerializedName("adult")
-    public String adult;
+    private String adult;
     @SerializedName("overview")
-    public String overview;
+    private String overview;
     @SerializedName("release_date")
-    public String releaseDate;
+    private String releaseDate;
     @SerializedName("genre_ids")
-    public List<Integer> genreIds = new ArrayList<Integer>();
+    private List<Integer> genreIds = new ArrayList<Integer>();
     @SerializedName("id")
-    public Integer id;
+    private Integer id;
     @SerializedName("original_title")
-    public String originalTitle;
+    private String originalTitle;
     @SerializedName("original_language")
-    public String originalLanguage;
+    private String originalLanguage;
     @SerializedName("title")
-    public String title;
+    private String title;
     @SerializedName("backdrop_path")
-    public String backdropPath;
+    private String backdropPath;
     @SerializedName("popularity")
-    public Double popularity;
+    private Double popularity;
     @SerializedName("vote_count")
-    public Integer voteCount;
+    private Integer voteCount;
     @SerializedName("video")
-    public Boolean video;
+    private Boolean video;
     @SerializedName("vote_average")
-    public Double voteAverage;
+    private Double voteAverage;
 
     public Movie(String posterPath, String adult, String overview, String releaseDate, List<Integer> genreIds, Integer id, String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity, Integer voteCount, Boolean video, Double voteAverage) {
         this.posterPath = posterPath;

@@ -6,13 +6,13 @@ import java.util.List;
 
 public class MovieResponse {
     @SerializedName("page")
-    public Integer page;
+    private Integer page;
     @SerializedName("results")
-    public List<Movie> results;
+    private List<Movie> results;
     @SerializedName("total_results")
-    public Integer totalResults;
+    private Integer totalResults;
     @SerializedName("totalPages")
-    public Integer totalPages;
+    private Integer totalPages;
 
     public Integer getPage() {
         return page;

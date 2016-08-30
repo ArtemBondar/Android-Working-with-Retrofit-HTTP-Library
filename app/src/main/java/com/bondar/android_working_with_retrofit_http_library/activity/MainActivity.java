@@ -3,6 +3,7 @@ package com.bondar.android_working_with_retrofit_http_library.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bondar.android_working_with_retrofit_http_library.R;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
+                TextView textView = (TextView)findViewById(R.id.text_view);
+                textView.setText(movies.get(0).getTitle());
                 Log.v(TAG, "Numbers of movies: " + movies.size());
             }
 
