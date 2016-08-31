@@ -1,6 +1,7 @@
 package com.bondar.android_working_with_retrofit_http_library.rest;
 
 
+import com.bondar.android_working_with_retrofit_http_library.model.Movie;
 import com.bondar.android_working_with_retrofit_http_library.model.MovieResponse;
 
 import retrofit2.Call;
@@ -14,4 +15,8 @@ public interface ApiInterface {
 
     @GET("movie/{id}")
     Call<MovieResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
+
+    @GET("movie/{id}/images")
+    Call<Movie> getMovieImage(@Path("id") int id, @Query("api_key") String apiKey);
+
 }
