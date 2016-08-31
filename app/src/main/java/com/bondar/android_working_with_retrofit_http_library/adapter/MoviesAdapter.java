@@ -1,15 +1,20 @@
 package com.bondar.android_working_with_retrofit_http_library.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bondar.android_working_with_retrofit_http_library.R;
+import com.bondar.android_working_with_retrofit_http_library.activity.MainActivity;
 import com.bondar.android_working_with_retrofit_http_library.model.Movie;
+import com.bondar.android_working_with_retrofit_http_library.rest.ApiClient;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -25,6 +30,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView movieReleaseDate;
         TextView movieDescription;
         TextView movieRating;
+        ImageView moviePoster;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
@@ -33,6 +39,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             movieReleaseDate = (TextView) itemView.findViewById(R.id.subtitle);
             movieDescription = (TextView) itemView.findViewById(R.id.description);
             movieRating = (TextView) itemView.findViewById(R.id.rating);
+            moviePoster = (ImageView) itemView.findViewById(R.id.poster);
         }
 
     }
@@ -56,6 +63,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         holder.movieReleaseDate.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.movieRating.setText(movies.get(position).getVoteAverage().toString());
+        Uri uri = Uri.parse("http://image.tmdb.org/t/p/w500"+movies.get(position).getPosterPath());
+        Picasso.with(context)
+                .load(uri)
+                .into(holder.moviePoster);
+
     }
 
     @Override
