@@ -11,9 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bondar.android_working_with_retrofit_http_library.R;
-import com.bondar.android_working_with_retrofit_http_library.activity.MainActivity;
 import com.bondar.android_working_with_retrofit_http_library.model.Movie;
-import com.bondar.android_working_with_retrofit_http_library.rest.ApiClient;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -63,10 +61,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         holder.movieReleaseDate.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.movieRating.setText(movies.get(position).getVoteAverage().toString());
-        Uri uri = Uri.parse("http://image.tmdb.org/t/p/w500"+movies.get(position).getPosterPath());
-        Picasso.with(context)
-                .load(uri)
-                .into(holder.moviePoster);
+        Uri uri = Uri.parse("http://image.tmdb.org/t/p/w500" + movies.get(position).getPosterPath());
+        Picasso.with(context).load(uri).into(holder.moviePoster);
 
     }
 
